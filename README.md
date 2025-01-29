@@ -71,3 +71,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## 기능
+
+0. admin auth 제공(쿠키기반)(자체로그인을 제공하지 않고 카카오계정의 uniqueId==나만 가능하게 함)
+1. 프론트한테 md파일 받아서 깃허브에 보내는 api provider
+2. 이미지 스토리지 중개자
