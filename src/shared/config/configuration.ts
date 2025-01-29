@@ -12,4 +12,10 @@ export default () => ({
     accessTokenExpiresIn: parseInt(process.env.ACCESS_TOKEN_EXPIRE_IN),
     refreshTokenExpiresIn: parseInt(process.env.REFRESH_TOKEN_EXPIRE_IN),
   },
+  github: {
+    token: process.env.GITHUB_TOKEN,
+    owner: process.env.GITHUB_OWNER,
+    repo: process.env.GITHUB_REPO,
+    branch: process.env.GITHUB_BRANCH,
+  },
 });
