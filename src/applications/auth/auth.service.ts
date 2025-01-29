@@ -14,10 +14,7 @@ export class AuthService {
     kakaoId: number,
   ): Promise<{ accessToken: string; accessTokenExpiresAt: Dayjs }> {
     const allowedUser = this.configService.get<number>('allowedUser');
-    console.log('allowedUser', typeof allowedUser);
-    console.log('kakaoId', typeof kakaoId);
     if (kakaoId !== allowedUser) {
-      console.log(kakaoId);
       throw new UnauthorizedException('Invalid user');
     }
     const tokens = await this.getTokensUseCase.execute({

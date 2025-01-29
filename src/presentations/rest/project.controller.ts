@@ -22,7 +22,7 @@ export class ProjectController {
     await this.githubService.createOrUpdateFile({
       path: `src/content/projects/${project.frontmatter.projectName}.md`,
       content: markdown,
-      message: `feat(project): ${project.frontmatter.projectName} 프로젝트 추가`,
+      message: `chore(content): add ${project.frontmatter.projectName} markdown via API`,
     });
     return project;
   }

@@ -1,5 +1,6 @@
 export default () => ({
   port: parseInt(process.env.PORT, 10) || 3000,
+  nodeEnv: process.env.NODE_ENV,
   clientUrl: process.env.CLIENT_URL,
   allowedUser: parseInt(process.env.ALLOWED_USER),
   kakao: {

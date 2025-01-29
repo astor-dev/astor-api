@@ -28,14 +28,16 @@ export class AuthController {
     const { accessToken, accessTokenExpiresAt } = await this.authService.login(
       req.user.kakaoId,
     );
-
-    const clientUrl = this.configService.get('CLIENT_URL');
-    const portExcludedClientUrl = clientUrl.match(/^https?:\/\/[^:\/]+/)?.[0];
-    console.log(portExcludedClientUrl);
+    const isProduction = this.configService.get('nodeEnv') === 'production';
+    console.log(
+      'accessTokenExpiresAt',
+      accessTokenExpiresAt.format('YYYY-MM-DD HH:mm:ss'),
+    );
+    const clientUrl = this.configService.get('clientUrl');
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
-      sameSite: 'none',
       expires: accessTokenExpiresAt.toDate(),
+      secure: isProduction,
     });
     res.redirect(clientUrl);
   }

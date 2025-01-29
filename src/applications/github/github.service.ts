@@ -37,6 +37,7 @@ export class GithubService {
           {
             headers: {
               Authorization: `Bearer ${this.token}`,
+              'X-GitHub-Api-Version': '2022-11-28',
             },
           },
         );
@@ -55,10 +56,18 @@ export class GithubService {
           message,
           content: Buffer.from(content).toString('base64'),
           branch: this.branch,
-          ...(sha && { sha }),
+          ...(sha ? { sha } : undefined),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+            'X-GitHub-Api-Version': '2022-11-28',
+            Accept: 'application/vnd.github+json',
+          },
         },
       );
     } catch (error) {
+      console.log(error);
       throw new Error(`GitHub API 오류: ${error.message}`);
     }
   }

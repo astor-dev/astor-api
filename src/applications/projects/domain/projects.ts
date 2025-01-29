@@ -1,5 +1,6 @@
 // 계층 단순화를 위해 애플리케이션 계층 내부에 도메인 모델을 정의합니다.
 
+import { ApiProperty } from '@nestjs/swagger';
 import { AstroContent, AstroFrontmatter } from 'src/shared/types/AstroContent';
 
 export enum ProjectType {
@@ -18,16 +19,43 @@ export enum ProjectRole {
   Etc = 'Etc',
 }
 
-export interface ProjectFrontmatter extends AstroFrontmatter {
+// 편의상 swagger 통합을 위해 클래스로 정의합니다.
+export class ProjectFrontmatter implements AstroFrontmatter {
+  @ApiProperty({
+    enum: ProjectType,
+  })
   projectType: ProjectType;
+
+  @ApiProperty()
   imageUrl: string;
+
+  @ApiProperty()
   siteUrl: string;
+
+  @ApiProperty({
+    enum: ProjectRole,
+    isArray: true,
+  })
   roles: ProjectRole[];
+
+  @ApiProperty()
   companyName: string;
+
+  @ApiProperty()
   projectName: string;
+
+  @ApiProperty()
   shortDescription: string;
+
+  @ApiProperty()
   startedAt: string;
+
+  @ApiProperty()
   endedAt: string;
+
+  @ApiProperty({
+    type: [Number],
+  })
   stackIds: number[];
 }
 
