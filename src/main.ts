@@ -5,13 +5,17 @@ import cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: ['http://localhost:4321'],
+    origin: [
+      'http://localhost:4321',
+      'https://astorverse.com',
+      'https://www.astorverse.com',
+    ],
     credentials: true,
   });
   app.use(cookieParser());
   const config = new DocumentBuilder()
-    .setTitle('Astoir API')
-    .setDescription('Astoir API 문서')
+    .setTitle('Astorverse API')
+    .setDescription('Astorverse API 문서')
     .setVersion('1.0')
     .build();
 

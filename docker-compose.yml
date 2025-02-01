@@ -1,7 +1,7 @@
 version: '3'
 services:
   api:
-    container_name: handybus-api-dev
+    container_name: astorverse-api
     restart: always
     image: node:20.11.0
     working_dir: /usr/src/app
@@ -10,4 +10,4 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - '3010:3000'
+      - '3000:3000'
