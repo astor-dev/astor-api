@@ -23,7 +23,6 @@ export class GetTokensUseCase
     const accessTokenExpiresIn = this.configService.get<number>(
       'jwt.accessTokenExpiresIn',
     );
-    console.log(accessTokenExpiresIn);
 
     const accessToken = await this.jwtService.signAsync(payload, {
       secret: jwtSecret,
