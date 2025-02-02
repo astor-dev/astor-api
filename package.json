@@ -21,6 +21,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.740.0",
+    "@aws-sdk/s3-request-presigner": "^3.740.0",
+    "@faker-js/faker": "^9.4.0",
     "@nestjs/axios": "^4.0.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^4.0.0",
@@ -34,6 +37,7 @@
     "axios": "^1.7.9",
     "cookie-parser": "^1.4.7",
     "dayjs": "^1.11.13",
+    "jest-mock-extended": "^4.0.0-beta1",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-kakao": "^1.0.1",
