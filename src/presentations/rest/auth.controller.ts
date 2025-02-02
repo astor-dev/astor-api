@@ -23,7 +23,7 @@ export class AuthController {
     );
     const isProduction = this.configService.get('nodeEnv') === 'production';
     const clientUrl = this.configService.get('clientUrl');
-    const clientDomain = clientUrl.split(':')[0];
+    const clientDomain = clientUrl.split('//')[1].split('/')[0].split(':')[0];
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
       expires: accessTokenExpiresAt.toDate(),
