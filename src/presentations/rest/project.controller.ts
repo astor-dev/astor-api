@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { GithubService } from 'src/applications/github/github.service';
 import { Project } from 'src/applications/projects/domain/projects';
@@ -12,7 +12,7 @@ export class ProjectController {
     private readonly githubService: GithubService,
   ) {}
 
-  @Post()
+  @Put()
   @UseGuards(AuthGuard('jwt'))
   async createProject(
     @Body() request: CreateProjectUseCaseRequest,

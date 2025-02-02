@@ -22,10 +22,6 @@ export class AuthController {
       req.user.kakaoId,
     );
     const isProduction = this.configService.get('nodeEnv') === 'production';
-    console.log(
-      'accessTokenExpiresAt',
-      accessTokenExpiresAt.format('YYYY-MM-DD HH:mm:ss'),
-    );
     const clientUrl = this.configService.get('clientUrl');
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
@@ -33,5 +29,11 @@ export class AuthController {
       secure: isProduction,
     });
     res.redirect(clientUrl);
+  }
+
+  @Get('verify')
+  @UseGuards(AuthGuard('jwt'))
+  async verifyAuth() {
+    return { authenticated: true };
   }
 }
