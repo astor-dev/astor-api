@@ -20,7 +20,7 @@ export class ProjectController {
     const { project, markdown } =
       await this.projectsService.createProject(request);
     await this.githubService.createOrUpdateFile({
-      path: `src/content/projects/${project.frontmatter.projectName}.md`,
+      path: `src/content/projects/${project.frontmatter.projectName}.mdx`,
       content: markdown,
       message: `chore(content): add ${project.frontmatter.projectName} markdown via API`,
     });
