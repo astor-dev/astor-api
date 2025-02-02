@@ -1,9 +1,17 @@
-import { Controller, Get, Req, Res, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpStatus,
+  Req,
+  Res,
+  UseGuards,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { AuthGuard } from '@nestjs/passport';
 import { Response } from 'express';
 import { AuthService } from 'src/applications/auth/auth.service';
 import { KakaoUserRequest } from 'src/applications/auth/strategies/kakao.strategy';
+import { VerifyAuthResponse } from 'src/presentations/rest/dto/auth/verifyAuth';
 
 @Controller('auth')
 export class AuthController {
@@ -41,7 +49,11 @@ export class AuthController {
 
   @Get('verify')
   @UseGuards(AuthGuard('jwt'))
-  async verifyAuth() {
-    return { authenticated: true };
+  async verifyAuth(): Promise<VerifyAuthResponse> {
+    return {
+      ok: true,
+      statusCode: HttpStatus.OK,
+      authenticated: true,
+    };
   }
 }

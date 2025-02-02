@@ -1,9 +1,9 @@
-import { Body, Controller, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, HttpStatus, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { GithubService } from 'src/applications/github/github.service';
-import { Project } from 'src/applications/projects/domain/projects';
 import { ProjectsService } from 'src/applications/projects/projects.service';
 import { CreateProjectUseCaseRequest } from 'src/applications/projects/useCases/CreateProjectUseCase/dto/CreateProjectUseCase.request';
+import { CreateProjectResponse } from 'src/presentations/rest/dto/project/createProject';
 
 @Controller('projects')
 export class ProjectController {
@@ -16,7 +16,7 @@ export class ProjectController {
   @UseGuards(AuthGuard('jwt'))
   async createProject(
     @Body() request: CreateProjectUseCaseRequest,
-  ): Promise<Project> {
+  ): Promise<CreateProjectResponse> {
     const { project, markdown } =
       await this.projectsService.createProject(request);
     await this.githubService.createOrUpdateFile({
@@ -24,6 +24,10 @@ export class ProjectController {
       content: markdown,
       message: `chore(content): add ${project.frontmatter.projectName} markdown via API`,
     });
-    return project;
+    return {
+      ok: true,
+      statusCode: HttpStatus.OK,
+      project,
+    };
   }
 }
