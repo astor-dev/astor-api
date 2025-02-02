@@ -1,4 +1,5 @@
-import { Controller, Get, HttpStatus, Query } from '@nestjs/common';
+import { Controller, Get, HttpStatus, Query, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ApiCreatedResponse, ApiOperation } from '@nestjs/swagger';
 import { GeneratePresignedUrlUseCase } from 'src/applications/images/applications/useCases/GeneratePresignedUrlUseCase/GeneratePresignedUrlUseCase';
 import {
@@ -20,6 +21,7 @@ export class ImageController {
     description: '201 Created',
     type: GeneratePresignedUrlResponse,
   })
+  @UseGuards(AuthGuard('jwt'))
   @Get('presigned-url')
   async generatePresignedUrl(
     @Query() query: GeneratePresignedUrlRequestQueries,
