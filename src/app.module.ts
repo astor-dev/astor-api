@@ -9,6 +9,8 @@ import { AuthController } from 'src/presentations/rest/auth.controller';
 import { ImageController } from 'src/presentations/rest/image.controller';
 import { ProjectController } from 'src/presentations/rest/project.controller';
 import configuration from 'src/shared/config/configuration';
+import { PostsModule } from 'src/applications/posts/posts.module';
+import { PostController } from 'src/presentations/rest/post.controller';
 
 @Module({
   imports: [
@@ -21,8 +23,14 @@ import configuration from 'src/shared/config/configuration';
     GithubModule,
     ProjectsModule,
     ImagesModule,
+    PostsModule,
   ],
-  controllers: [AuthController, ProjectController, ImageController],
+  controllers: [
+    AuthController,
+    ProjectController,
+    ImageController,
+    PostController,
+  ],
   providers: [],
 })
 export class AppModule {}
