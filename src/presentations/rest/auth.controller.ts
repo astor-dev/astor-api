@@ -44,6 +44,13 @@ export class AuthController {
       domain: clientDomain,
       secure: isProduction,
     });
+    res.cookie('hasLoggedInOnce', true, {
+      httpOnly: false,
+      expires: accessTokenExpiresAt.add(30, 'days').toDate(),
+      domain: clientDomain,
+      secure: isProduction,
+    });
+
     res.redirect(clientUrl);
   }
 
