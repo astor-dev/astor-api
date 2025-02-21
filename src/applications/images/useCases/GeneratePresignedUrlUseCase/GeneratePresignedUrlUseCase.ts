@@ -1,13 +1,14 @@
 import { UseCase } from 'src/shared/core/applications/UseCase';
 
 import { Inject, Injectable } from '@nestjs/common';
-import { GeneratePresignedUrlUseCaseRequest } from 'src/applications/images/applications/useCases/GeneratePresignedUrlUseCase/dto/GeneratePresignedUrlUseCase.request';
-import { GeneratePresignedUrlUseCaseResponse } from 'src/applications/images/applications/useCases/GeneratePresignedUrlUseCase/dto/GeneratePresignedUrlUseCase.response';
+
 import {
   IImageStorage,
   IMAGE_STORAGE,
 } from 'src/shared/core/infrastructures/ImageStorage';
 import { generateUUID } from 'src/shared/utils/UUID.utils';
+import { GeneratePresignedUrlUseCaseRequest } from 'src/applications/images/useCases/GeneratePresignedUrlUseCase/dto/GeneratePresignedUrlUseCase.request';
+import { GeneratePresignedUrlUseCaseResponse } from 'src/applications/images/useCases/GeneratePresignedUrlUseCase/dto/GeneratePresignedUrlUseCase.response';
 
 @Injectable()
 export class GeneratePresignedUrlUseCase

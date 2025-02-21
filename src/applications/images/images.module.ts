@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { GeneratePresignedUrlUseCase } from 'src/applications/images/applications/useCases/GeneratePresignedUrlUseCase/GeneratePresignedUrlUseCase';
+import { GeneratePresignedUrlUseCase } from 'src/applications/images/useCases/GeneratePresignedUrlUseCase/GeneratePresignedUrlUseCase';
 import { IMAGE_STORAGE } from 'src/shared/core/infrastructures/ImageStorage';
 import { S3ImageStorage } from 'src/shared/core/infrastructures/storages/S3ImageStorage';
 
