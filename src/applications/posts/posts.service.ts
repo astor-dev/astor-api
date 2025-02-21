@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Post } from 'src/applications/posts/domain/posts';
-import { CreatePostMarkdownUseCase } from 'src/applications/posts/useCases/CreatePostMarkdownUseCase.ts/CreatePostMarkdownUseCase';
+import { CreatePostMarkdownUseCase } from 'src/applications/posts/useCases/CreatePostMarkdownUseCase/CreatePostMarkdownUseCase';
 import { CreatePostUseCase } from 'src/applications/posts/useCases/CreatePostUseCase/CreatePostUseCase';
 import { CreatePostUseCaseRequest } from 'src/applications/posts/useCases/CreatePostUseCase/dto/CreatePostUseCase.request';
 

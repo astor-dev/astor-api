@@ -27,7 +27,6 @@ export class ProjectController {
     return {
       ok: true,
       statusCode: HttpStatus.OK,
-      project,
     };
   }
 }

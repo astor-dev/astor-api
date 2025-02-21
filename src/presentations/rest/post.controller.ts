@@ -26,7 +26,6 @@ export class PostController {
     return {
       ok: true,
       statusCode: HttpStatus.OK,
-      post,
     };
   }
 }

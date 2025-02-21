@@ -1,7 +1,7 @@
 import { Controller, Get, HttpStatus, Query, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiCreatedResponse, ApiOperation } from '@nestjs/swagger';
-import { GeneratePresignedUrlUseCase } from 'src/applications/images/applications/useCases/GeneratePresignedUrlUseCase/GeneratePresignedUrlUseCase';
+import { GeneratePresignedUrlUseCase } from 'src/applications/images/useCases/GeneratePresignedUrlUseCase/GeneratePresignedUrlUseCase';
 import {
   GeneratePresignedUrlRequestQueries,
   GeneratePresignedUrlResponse,
