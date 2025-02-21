@@ -15,8 +15,8 @@ export function createAstroContent<T extends AstroContent>(
       if (typeof value === 'boolean') {
         return `${key}: ${value ? 'true' : 'false'}`;
       }
-      // 문자열인 경우 따옴표로 감싸기
-      return `${key}: "${value}"`;
+      // 문자열인 경우 따옴표로 감싸면서 특수문자 이스케이프
+      return `${key}: "${value.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
     })
     .join('\n');
 
