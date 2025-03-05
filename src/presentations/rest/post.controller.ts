@@ -19,7 +19,7 @@ export class PostController {
   ): Promise<CreatePostResponse> {
     const { post, markdown } = await this.postsService.createPost(request);
     await this.githubService.createOrUpdateFile({
-      path: `src/content/posts/${post.frontmatter.title}.mdx`,
+      path: `src/content/posts/${post.frontmatter.id}.mdx`,
       content: markdown,
       message: `chore(content): add ${post.frontmatter.title} markdown via API`,
     });

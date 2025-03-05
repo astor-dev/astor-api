@@ -4,6 +4,8 @@ import { AstroContent, AstroFrontmatter } from 'src/shared/types/AstroContent';
 // 편의상 swagger 통합을 위해 클래스로 정의합니다.
 export class PostFrontmatter implements AstroFrontmatter {
   @ApiProperty()
+  id: string;
+  @ApiProperty()
   author: string;
   @ApiProperty()
   title: string;
