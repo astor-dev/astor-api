@@ -11,6 +11,8 @@ import { ProjectController } from 'src/presentations/rest/project.controller';
 import configuration from 'src/shared/config/configuration';
 import { PostsModule } from 'src/applications/posts/posts.module';
 import { PostController } from 'src/presentations/rest/post.controller';
+import { SeriesController } from 'src/presentations/rest/series.controller';
+import { SeriesModule } from 'src/applications/series/series.module';
 
 @Module({
   imports: [
@@ -24,12 +26,14 @@ import { PostController } from 'src/presentations/rest/post.controller';
     ProjectsModule,
     ImagesModule,
     PostsModule,
+    SeriesModule,
   ],
   controllers: [
     AuthController,
     ProjectController,
     ImageController,
     PostController,
+    SeriesController,
   ],
   providers: [],
 })

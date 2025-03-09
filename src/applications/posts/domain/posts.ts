@@ -18,7 +18,7 @@ export class PostFrontmatter implements AstroFrontmatter {
   @ApiProperty()
   ogImage: string;
   @ApiProperty()
-  series: string;
+  seriesId: string;
   @ApiProperty()
   description: string;
   @ApiProperty()
