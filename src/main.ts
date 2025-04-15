@@ -9,13 +9,15 @@ async function bootstrap() {
       'http://localhost:4321',
       'https://astorverse.com',
       'https://www.astorverse.com',
+      'https://astor-dev.com',
+      'https://www.astor-dev.com',
     ],
     credentials: true,
   });
   app.use(cookieParser());
   const config = new DocumentBuilder()
-    .setTitle('Astorverse API')
-    .setDescription('Astorverse API 문서')
+    .setTitle('astor API')
+    .setDescription('astor API 문서')
     .setVersion('1.0')
     .build();
 
