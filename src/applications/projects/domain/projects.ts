@@ -59,10 +59,10 @@ export class ProjectFrontmatter implements AstroFrontmatter {
   stackIds: number[];
 
   @ApiProperty()
-  primaryColor: string;
+  primaryColor: string | null;
 
   @ApiProperty()
-  backgroundColor: string;
+  backgroundColor: string | null;
 }
 
 export class Project implements AstroContent {
