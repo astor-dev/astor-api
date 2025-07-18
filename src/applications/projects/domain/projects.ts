@@ -53,10 +53,11 @@ export class ProjectFrontmatter implements AstroFrontmatter {
   @ApiProperty()
   endedAt: string;
 
-  @ApiProperty({
-    type: [Number],
-  })
-  stackIds: number[];
+  @ApiProperty()
+  stack: {
+    id: number;
+    type: string;
+  }[];
 
   @ApiProperty()
   primaryColor: string | null;
